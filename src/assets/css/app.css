@@ -11,6 +11,7 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  font-family: "Noto Sans SC" , sans-serif!important;
 }
 
 .clearfix {
@@ -35,34 +36,33 @@
 }
 
 .visible {
-    visibility: visible !important;
+  visibility: visible;
 }
 
 html {
-    width:100%;
-    height:100%;
+  width:100%;
+  height:100%;
 }
 
 body {
-    font-family: "Microsoft YaHei" !important;
-    margin:0;
-    padding:0;
-    width:100%;
-    height:100%;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
 }
 
 a {
-    text-decoration: none !important;
+  text-decoration: none;
 }
 
 input,
 textarea,
 select,
 button {
-    outline: none;
-    margin:0;
-    padding: 0;
-    border: 0;
+  outline: none;
+  margin:0;
+  padding: 0;
+  border: 0;
 }
 
 img[src=""] {

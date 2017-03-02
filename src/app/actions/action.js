@@ -1,70 +1,10 @@
 var actions = {
-	//files
-	selectChildren(rowNumber) {
-		return {
-			type: 'SELECT_CHILDREN',
-			rowNumber:rowNumber
-		}
-	},
-
-	selectAllChildren() {
-		return {
-			type: 'SELECT_ALL_CHILDREN',
-		}
-	},
-	//view
-	toggleDevice() {
-		return {
-			type: 'TOGGLE_DEVICE'
-		}
-	},
-
-	toggleAddDevice() {
-		return {
-			type: 'TOGGLE_ADD_DEVICE'
-		}
-	},
-
-	toggleMenu(index,x,y,selected) {
-		return {
-			type: 'TOGGLE_MENU',
-			index : index,
-			x: x,
-			y: y,
-			selected:selected
-		}
-	},
-
-	openDetail() {
-		return {
-			type : 'OPEN_DETAIL'
-		}
-	},
-
-	cleanDetail() {
-		return {
-			type: 'CLEAN_DETAIL'
-		}
-	},
-	//left navigation
-	changeSelectedNavItem(name,index) {
-		return {
-			type: 'NAV_SELECT',
-			select: name
-		}
-	},
 
 	selectedNavItem(name) {
     return {
 			type: 'PHOTO_MENU_SELECT',
 			name
 		};
-	},
-
-	navToggle() {
-		return {
-			type: 'NAV_MENU_TOGGLE'
-		}
 	},
 
 	createFileInfo(fileInfo) {
@@ -77,43 +17,6 @@ var actions = {
 	clearFileInfo() {
 		return {
 			type: 'CLEAR_FILE_INFO'
-		}
-	},
-
-	// no using
-	mouseDown(left,top) {
-		return {
-			type: 'MOUSE_DOWN',
-			left: left,
-			top: top
-		}
-	},
-
-	mouseMove(width,height) {
-		return {
-			type: 'MOUSE_MOVE',
-			width: width,
-			height:height
-		}
-	},
-
-	mouseUp() {
-		return {
-			type: 'MOUSE_UP'
-		}
-	},
-
-	// addUpload(obj) {
-	// 	return {
-	// 		type: 'ADD_UPLOAD',
-	// 		obj: obj
-	// 	}
-	// },
-
-	addDownload(obj) {
-		return {
-			type: 'ADD_DOWNLOAD',
-			obj: obj
 		}
 	},
 
@@ -192,75 +95,19 @@ var actions = {
 		};
 	},
 
-	// refreshDir(obj) {
-	// 	return {
-	// 		type: 'REFRESH_DIR',
-	// 		obj: obj,
-	// 	}
-	// },
-
-	removeFile(obj) {
-		return {
-			type: 'REMOVE',
-			obj: obj
-		}
-	},
-
-	toggleDialogOfUploadFolder(open) {
-		return {
-			type: 'TOGGLE_DIALOG_FOLDER',
-			isOpen: open
-		}
-	},
-
-	toggleShare(open) {
-		return {
-				type: 'TOGGLE_SHARE',
-				isOpen: open
-		}
-	},
-
-	cancelUserCheck() {
-		return {
-			type:'CANCEL_USER_CHECK',
-		}
-	},
-
-	refreshStatusOfUpload(tasks) {
+	refreshStatusOfUpload(tasks, finish) {
 		return {
 			type: 'REFRESH_STATUS_UPLOAD',
-			tasks : tasks
+			tasks: tasks,
+			uploadFinish: finish
 		}
 	},
 
-	refreshStatusOfDownload(file,status) {
+	refreshStatusOfDownload(tasks, finish) {
 		return {
 			type: 'REFRESH_STATUS_DOWNLOAD',
-			file: file,
-			status: status
-		}
-	},
-
-	// refreshDownloadStatusOfFolder(key,status) {
-	// 	return {
-	// 		type: 'DOWNLOAD_STATUS_OF_FOLDER',
-	// 		key: key,
-	// 		status: status
-	// 	}
-	// },
-
-	// refreshUploadStatusOfFolder(key,status) {
-	// 	return {
-	// 		type: 'UPLOAD_STATUS_OF_FOLDER',
-	// 		key: key,
-	// 		status: status
-	// 	}
-	// },
-
-	checkUser(uuid,b) {
-		return {
-			type: 'CHECK_USER',
-			uuid: uuid
+			tasks : tasks,
+			downloadFinish: finish
 		}
 	},
 
@@ -277,52 +124,7 @@ var actions = {
 			type: 'CLEAN_SNACK'
 		}
 	},
-
-	toggleMove(open,x,y) {
-		return {
-			type: 'TOGGLE_MOVE',
-			open: open,
-			x: x,
-			y: y
-		}
-	},
-
-	setTree(tree) {
-		return {
-			type: 'SET_TREE',
-			tree: tree
-		}
-	},
-
-	closeMove() {
-		return {
-			type: 'CLOSE_MOVE'
-		}
-	},
 	//media ---------------------------------------------
-	// setMedia(data) {
-	// 	return {
-	// 		type: 'SET_MEDIA',
-	// 		data: data
-	// 	}
-	// },
-
-	// setThumb(item,path,status) {
-	// 	return {
-	// 		type: 'SET_THUMB',
-	// 		data: item,
-	// 		status:status,
-	// 		path:path
-	// 	}
-	// },
-
-	// setShareThumb(item, path, status) {
-	// 	return {
-	// 		type: 'SET_SHARE_THUMB',
-	// 		data: item,
-	// 		path: path
-	// 	}
-	// },
 
 	toggleMedia(open) {
 		return {
@@ -338,46 +140,10 @@ var actions = {
 		}
 	},
 
-	// setShareChildren(shareChildren,sharePath) {
-	// 	return {
-	// 		type: 'SET_SHARE_CHILDREN',
-	// 		shareChildren: shareChildren,
-	// 		sharePath:sharePath
-	// 	}
-	// },
-
-	setMediaSize(reset) {
-		return {
-			type: 'SET_MEDIA_SIZE',
-			reset: reset
-		}
-	},
-
-	// setMediaShare(data) {
-	// 	return {
-	// 		type : 'SET_MEDIA_SHARE',
-	// 		data : data
-	// 	}
-	// },
-
-	logOut() {
-		return {
-			type: 'LOG_OUT'
-		}
-	},
-
 	adapter(data) {
 		return {
 			type: 'ADAPTER',
 			store: data
-		}
-	},
-
-	//move data
-	setMoveData(data) {
-		return {
-			type : 'SET_MOVE_DATA',
-			data : data
 		}
 	},
 

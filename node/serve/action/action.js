@@ -12,30 +12,10 @@ var actions = {
 		}
 	},
 
-	loginoff() {
-		return {
-			type: 'LOGIN_OFF'
-		}
-	},
-
 	setDevice(device) {
 		return {
 			type: 'SET_DEVICE',
 			device: device
-		}
-	},
-
-	deleteServer(item) {
-		return {
-			type : 'DELETE_SERVER',
-			item : item
-		}
-	},
-
-	setDeviceUsedRecently(ip) {
-		return {
-			type: 'SET_DEVICE_USED_RECENTLY',
-			ip: ip
 		}
 	},
 
@@ -83,30 +63,6 @@ var actions = {
 			data : data
 		}
 	},
-
-	//share
-	setShareChildren(shareChildren,sharePath) {
-		return {
-			type: 'SET_SHARE_CHILDREN',
-			shareChildren: shareChildren,
-			sharePath:sharePath
-		}
-	},
-
-	setFilesSharedWithMe(files) {
-		return {
-			type: 'FILES_SHARED_BY_ME',
-			files:files
-		}
-	},
-
-	//transimission --------------------------------------------
-	// setUpload(data) {
-	// 	return {
-	// 		type : 'SET_UPLOAD',
-	// 		data : data
-	// 	}
-	// }
 }
 
 module.exports = actions;

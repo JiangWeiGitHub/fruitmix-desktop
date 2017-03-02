@@ -60,10 +60,19 @@ export const fileNav = (context, target) => {
   **/
 
   setImmediate(() => 
-    dispatch({
+    window.store.dispatch({
       type: 'FILE_NAV_START',
       job: key
     }))
 }
+
+export const fileCreateNewFolder = (key, target, name, callback) => {
+  sendCommand(key, {
+    cmd: 'FILE_CREATE_NEW_FOLDER',
+    args: { target, name }, 
+  }, callback) 
+}
+
+
 
 

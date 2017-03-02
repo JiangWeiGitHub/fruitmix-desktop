@@ -8,14 +8,11 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin=require("html-webpack-plugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ELE_PATH = path.resolve(__dirname, 'ele');
-var SRC_PATH = path.resolve(__dirname, 'src');
-var HTML_PATH = path.resolve(__dirname, 'src/index.html');
+
 module.exports = {
 
     output: {
-        path: 'build',
+        path: 'public',
         filename  : 'bundle.js',
         hash: true
     },
@@ -50,30 +47,27 @@ module.exports = {
             {
                 test   : /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader : 'react-hot!babel-loader',
-                // loader: 'babel-loader',
-                // query: {
-                //     presets: ['es2015', 'react', 'stage-2']
-                // }
+                loader : 'react-hot!babel-loader'
             },
             {
-                test  : /\.css$/,
+                test  : /\.(css|sass)$/,
                 loader: 'style-loader!css-loader'
             },
             {
                 test  : /\.(png|jpg|jpeg|ico|gif|woff|woff2|ttf|eot|svg)$/,
                 loader: 'url-loader?limit=8192'
-            }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
         ]
     },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({template: path.resolve(__dirname, 'src/index.html')}),
-        // new CopyWebpackPlugin([
-        //     { from:  path.resolve(SRC_PATH,'electron-index.js'), to: 'electron-index.js' },
-        //     { from:  path.resolve(SRC_PATH,'index.html'), to: 'index.html' }
-        // ])
+        // new HtmlWebpackPlugin({template: path.resolve(__dirname, 'src/index.html')}),
+        new webpack.DefinePlugin({ "global.GENTLY": false })
     ]
 
 };

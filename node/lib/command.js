@@ -1,13 +1,24 @@
 import Debug from 'debug'
 import { ipcMain } from 'electron'
+import taskFactory from './commandTaskCreater'
 const debug = Debug('lib:command')
 
 let commandMap = new Map()
 
-const commandHandler = (evt, id, op) => {
+// evt: electron ipc event, holding sender
+// id: should be uuid, identifying the command instance
+// op: operation, has cmd and args as props
+
+ipcMain.on('command', (evt, id, op) => {
+  let task = taskFactory(evt, id, op, commandMap)
+  task.isIDExist()
+})
+/*
+ipcMain.on('command', (evt, id, op) => {
 
   debug('incoming', id, op)
 
+  // if id is not provided, the command does not need a reply
   if (!id) {
     let handler = commandMap.get(op.cmd)
     if (handler) {
@@ -18,7 +29,9 @@ const commandHandler = (evt, id, op) => {
     return    
   }
 
+  // find handler
   let handler = commandMap.get(op.cmd)
+
   if (handler) {
     handler(op.args, (err, data) => {
       debug('reply', id, err && err.message, data)
@@ -46,11 +59,8 @@ const commandHandler = (evt, id, op) => {
       },
     })
   }
-}
-
-// ipcMain.on('unsolicited', 
-
-ipcMain.on('command', commandHandler)
+})
+*/
 
 // key: command name, cmd
 // val: function (handler)
