@@ -2,6 +2,7 @@
   "name": "wisnuc",
   "version": "1.0.0",
   "description": "wisnuc",
+  "author": "jiangwei <wei.jiang@winsuntech.cn>",
   "private": true,
   "main": "main.js",
   "scripts": {
