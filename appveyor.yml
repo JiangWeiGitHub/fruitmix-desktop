@@ -5,6 +5,7 @@ environment:
 install:
   - npm install
   - npm uninstall babel
+  - npm install babel
   - npm install electron-builder --save-dev
   - npm install electron-log electron-updater --save
   - ./node_modules/.bin/webpack -p
