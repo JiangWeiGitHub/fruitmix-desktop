@@ -3,11 +3,10 @@ environment:
   skip_tags: false
 
 install:
-  #- git checkout transimission
+  - npm install
+  - npm uninstall babel
   - npm install electron-builder --save-dev
   - npm install electron-log electron-updater --save
-  - npm uninstall babel
-  - npm install
   - ./node_modules/.bin/webpack -p
   - npm run build
 
