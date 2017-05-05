@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "wisnuc",
   "author": "jiangwei <wei.jiang@winsuntech.cn>",
+  "repository": "https://github.com/JiangWeiGitHub/fruitmix-desktop.git",
   "private": true,
   "main": "main.js",
   "scripts": {
