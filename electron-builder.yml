@@ -2,7 +2,7 @@
     copyright: wisnuc
     productName: testApp
 
-    asar: false
+    asar: true
 
     directories:
       buildResources: /
