@@ -35,6 +35,6 @@
         - deb
         - AppImage
 
-	publish:
-	  provider:
+    publish:
+      provider:
         github
