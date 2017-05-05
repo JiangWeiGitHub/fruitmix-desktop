@@ -27,14 +27,8 @@
 
     win:
       target: nsis
-      publish: github
-      remoteReleases: https://github.com/JiangWeiGitHub/fruitmix-desktop
 
     linux:
       target:
         - deb
         - AppImage
-
-    publish:
-      provider:
-        github
